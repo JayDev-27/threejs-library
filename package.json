@@ -1,6 +1,7 @@
 {
   "name": "siyaverse",
   "version": "1.0.0",
+  "description": "Interactive 3D sunset doorway sanctuary built with Three.js",
   "private": true,
   "type": "module",
   "scripts": {

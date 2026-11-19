@@ -13,20 +13,22 @@ A curated library and showcase of state-of-the-art Three.js scenes, procedural 3
 
 Integrated from [Threejs Scroll Showcases](https://threejs-scroll-showcases.vercel.app/) — ten procedural, scroll-driven Three.js worlds with zero 3D model or image asset dependencies:
 
-| # | World | The Journey | Route |
-|:--|:--|:--|:--|
-| **01** | **Nature** (*Verdant*) | Dawn over an alpine valley: spruce, birch, grass, mirror lake | [`/showcases/showcase.html?s=nature`](/showcases/showcase.html?s=nature) |
-| **02** | **Japanese** (*Yoizakura*) | Vermilion torii, stone lanterns, night sakura, five-storey pagoda | [`/showcases/showcase.html?s=japanese`](/showcases/showcase.html?s=japanese) |
-| **03** | **Cyberpunk** (*Neon Rain*) | Wet megacity street with reflections, neon signage, hover traffic | [`/showcases/showcase.html?s=cyberpunk`](/showcases/showcase.html?s=cyberpunk) |
-| **04** | **Gaming** (*Level Up*) | Voxel islands over a synthwave grid, coin trail, pixel sprites | [`/showcases/showcase.html?s=gaming`](/showcases/showcase.html?s=gaming) |
-| **05** | **Health** (*Vital*) | DNA, living cell, bloodstream, firing neurons, beating heart | [`/showcases/showcase.html?s=health`](/showcases/showcase.html?s=health) |
-| **06** | **Space** (*Event Horizon*) | Living planet, asteroid belt, ringed giant, nebula, black hole | [`/showcases/showcase.html?s=space`](/showcases/showcase.html?s=space) |
-| **07** | **Underwater** (*Abyss*) | Coral reef caustics, kelp forest, swimming whale, bioluminescence | [`/showcases/showcase.html?s=underwater`](/showcases/showcase.html?s=underwater) |
-| **08** | **Mythology** (*Olympus*) | Marble temple above cloud sea, thunderstorm, eternal flame | [`/showcases/showcase.html?s=mythology`](/showcases/showcase.html?s=mythology) |
-| **09** | **Fantasy** (*Arcanum*) | Floating isles under aurora, elder tree of light, crystal spire | [`/showcases/showcase.html?s=fantasy`](/showcases/showcase.html?s=fantasy) |
-| **10** | **Jaipur** (*Gulabi Nagar*) | Hawa Mahal, decorated elephants, cusped arches, stepwell diyas | [`/showcases/showcase.html?s=jaipur`](/showcases/showcase.html?s=jaipur) |
+> **[▶ Open Live Gallery](https://threejs-scroll-showcases.vercel.app/)** &nbsp;·&nbsp; Local dev route: `/showcases/`
 
-Gallery Overview: [`/showcases/`](/showcases/)
+| # | World | The Journey | Live 3D Demo | Source Code |
+|:--:|:--|:--|:--:|:--:|
+| **01** | **Nature** (*Verdant*) | Dawn over an alpine valley: spruce, birch, grass, mirror lake | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=nature) | [`nature.js`](public/showcases/scenes/nature.js) |
+| **02** | **Japanese** (*Yoizakura*) | Vermilion torii, stone lanterns, night sakura, five-storey pagoda | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=japanese) | [`japanese.js`](public/showcases/scenes/japanese.js) |
+| **03** | **Cyberpunk** (*Neon Rain*) | Wet megacity street with reflections, neon signage, hover traffic | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=cyberpunk) | [`cyberpunk.js`](public/showcases/scenes/cyberpunk.js) |
+| **04** | **Gaming** (*Level Up*) | Voxel islands over a synthwave grid, coin trail, pixel sprites | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=gaming) | [`gaming.js`](public/showcases/scenes/gaming.js) |
+| **05** | **Health** (*Vital*) | DNA, living cell, bloodstream, firing neurons, beating heart | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=health) | [`health.js`](public/showcases/scenes/health.js) |
+| **06** | **Space** (*Event Horizon*) | Living planet, asteroid belt, ringed giant, nebula, black hole | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=space) | [`space.js`](public/showcases/scenes/space.js) |
+| **07** | **Underwater** (*Abyss*) | Coral reef caustics, kelp forest, swimming whale, bioluminescence | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=underwater) | [`underwater.js`](public/showcases/scenes/underwater.js) |
+| **08** | **Mythology** (*Olympus*) | Marble temple above cloud sea, thunderstorm, eternal flame | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=mythology) | [`mythology.js`](public/showcases/scenes/mythology.js) |
+| **09** | **Fantasy** (*Arcanum*) | Floating isles under aurora, elder tree of light, crystal spire | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=fantasy) | [`fantasy.js`](public/showcases/scenes/fantasy.js) |
+| **10** | **Jaipur** (*Gulabi Nagar*) | Hawa Mahal, decorated elephants, cusped arches, stepwell diyas | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=jaipur) | [`jaipur.js`](public/showcases/scenes/jaipur.js) |
+
+Gallery Overview: [threejs-scroll-showcases.vercel.app](https://threejs-scroll-showcases.vercel.app/) &nbsp;·&nbsp; Source folder: [`public/showcases/`](public/showcases/)
 
 ---
 

@@ -280,5 +280,5 @@ window.addEventListener('pagehide',()=>{sound.stopMicrophone();});
 if(import.meta.hot)import.meta.hot.dispose(()=>{disposed=true;gsap.ticker.remove(tick);master.scrollTrigger?.kill();master.kill();lenis.destroy();interaction?.dispose();world?.dispose();sound.dispose();});
 init();
 
-// Exposes only rendering metrics for the local verification script.
-window.__siyaverse={get ready(){return !!world?.isReady;},get progress(){return state.progress;},get discoveries(){return [...found];},get doorAngle(){return world?.portal.doorPivot.rotation.y||0;},get renderInfo(){return world?{calls:world.renderer.info.render.calls,triangles:world.renderer.info.render.triangles}:null;}};
+// Exposes rendering metrics for the local verification script.
+window.__threejsLibrary={get ready(){return !!world?.isReady;},get progress(){return state.progress;},get discoveries(){return [...found];},get doorAngle(){return world?.portal.doorPivot.rotation.y||0;},get renderInfo(){return world?{calls:world.renderer.info.render.calls,triangles:world.renderer.info.render.triangles}:null;}};

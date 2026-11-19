@@ -1,10 +1,16 @@
-# SiyaVerse
+# Three.js Library
 
-> An interactive 3D sunset doorway experience built with Three.js and GSAP.
+> A curated collection and showcase of state-of-the-art Three.js scenes, interactive 3D experiments, and creative WebGL environments.
 
-A sunset doorway leading into a personal, interactive birthday sanctuary. Built with Vite, Three.js, GSAP ScrollTrigger, Lenis, and procedural canvas textures.
+This repository serves as a library of advanced Three.js projects, showcasing state-of-the-art WebGL techniques including camera projection handoffs, instanced vegetation, procedural textures, interactive 3D elements, dynamic lighting, and smooth scroll orchestration.
 
-## Run locally
+---
+
+## Featured Project: Sunset Doorway Sanctuary
+
+An interactive 3D sunset meadow with an opening camera handoff, 55,000 instanced grass blades, procedural shaders, and interactive keepsakes. Built with Vite, Three.js, GSAP ScrollTrigger, Lenis, and procedural canvas textures.
+
+### Run locally
 
 ```sh
 npm install

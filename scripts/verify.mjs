@@ -12,12 +12,12 @@ page.on('console',message=>{if(message.type()==='error')errors.push(message.text
 page.on('response',response=>{if(response.status()>=400)missing.push(`${response.status()} ${response.url()}`);});
 try{
   await page.goto(base,{waitUntil:'networkidle'});
-  await page.waitForFunction(()=>window.__siyaverse?.ready,{timeout:60000});
+  await page.waitForFunction(()=>window.__threejsLibrary?.ready,{timeout:60000});
   await page.waitForTimeout(900);
   await page.screenshot({path:'test-results/desktop-opening.png'});
-  assert.equal(await page.title(),'SiyaVerse — A little world, just for you');
+  assert.match(await page.title(),/Three\.js Library/);
   await page.locator('[data-journey="sanctuary"]').click();
-  await page.waitForFunction(()=>window.__siyaverse.progress>.94,{timeout:20000});
+  await page.waitForFunction(()=>window.__threejsLibrary.progress>.94,{timeout:20000});
   await page.waitForTimeout(800);
   await page.screenshot({path:'test-results/desktop-sanctuary.png'});
   await page.locator('[data-view="memories"]').click();
@@ -30,7 +30,7 @@ try{
   await page.locator('[data-view="cake"]').click();
   await page.locator('[data-action="blow"]').click();
   await page.locator('#dialog-title').filter({hasText:'Happy birthday, dear you.'}).waitFor();
-  assert((await page.evaluate(()=>window.__siyaverse.discoveries)).includes('wish'));
+  assert((await page.evaluate(()=>window.__threejsLibrary.discoveries)).includes('wish'));
   await page.screenshot({path:'test-results/birthday-wish.png'});
   await page.locator('[data-action="relight"]').click();
   await page.locator('[data-action="blow"]').waitFor();
@@ -38,12 +38,12 @@ try{
   await page.locator('[data-view="gifts"]').click();
   await page.locator('[data-gift="0"]').click();
   await page.getByRole('heading',{name:'To the person who makes ordinary days extraordinary.'}).waitFor();
-  assert((await page.evaluate(()=>window.__siyaverse.discoveries)).includes('gift-1'));
+  assert((await page.evaluate(()=>window.__threejsLibrary.discoveries)).includes('gift-1'));
   await page.screenshot({path:'test-results/gift-letter.png'});
   await page.locator('#dialog-close').click();
   await page.locator('[data-view="wonders"]').click();
   await page.locator('[data-wonder="lantern"]').click();
-  assert((await page.evaluate(()=>window.__siyaverse.discoveries)).includes('lantern'));
+  assert((await page.evaluate(()=>window.__threejsLibrary.discoveries)).includes('lantern'));
   for(const id of ['banner','butterflies','topper','blue-flower','note']){
     await page.locator('#discovery').click();
     await page.locator(`[data-wonder="${id}"]`).click();
@@ -55,22 +55,22 @@ try{
     await page.locator('#keepsake-dialog').waitFor({state:'visible'});
     await page.locator('#dialog-close').click();
   }
-  assert.equal((await page.evaluate(()=>window.__siyaverse.discoveries)).length,12,'All twelve discoveries should be reachable.');
+  assert.equal((await page.evaluate(()=>window.__threejsLibrary.discoveries)).length,12,'All twelve discoveries should be reachable.');
   await page.locator('#sound-button').click();
   assert.equal(await page.locator('#sound-button').getAttribute('aria-pressed'),'true');
   await page.locator('#sound-button').click();
   await page.locator('#back-button').click();
   await page.waitForTimeout(1600);
-  const metrics=await page.evaluate(()=>({render:window.__siyaverse.renderInfo,discoveries:window.__siyaverse.discoveries,overflow:document.documentElement.scrollWidth>innerWidth}));
+  const metrics=await page.evaluate(()=>({render:window.__threejsLibrary.renderInfo,discoveries:window.__threejsLibrary.discoveries,overflow:document.documentElement.scrollWidth>innerWidth}));
   assert.equal(metrics.overflow,false,'Desktop should not overflow horizontally.');
   const mobile=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true,reducedMotion:'reduce'});
   mobile.on('pageerror',error=>errors.push(error.message));
   await mobile.goto(base,{waitUntil:'networkidle'});
-  await mobile.waitForFunction(()=>window.__siyaverse?.ready,{timeout:60000});
+  await mobile.waitForFunction(()=>window.__threejsLibrary?.ready,{timeout:60000});
   await mobile.waitForTimeout(900);
   await mobile.screenshot({path:'test-results/mobile-opening.png'});
   await mobile.locator('#begin-button').click();
-  await mobile.waitForFunction(()=>window.__siyaverse.progress>.94);
+  await mobile.waitForFunction(()=>window.__threejsLibrary.progress>.94);
   await mobile.waitForTimeout(300);
   await mobile.screenshot({path:'test-results/mobile-sanctuary.png'});
   assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'Mobile should not overflow horizontally.');

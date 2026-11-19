@@ -101,4 +101,14 @@ export const SCENES = [
       { k: 'बावड़ी · Stepwell', t: 'Geometry that holds water', b: 'Thirteen tiers of stairs descend in perfect zigzag to the pool.' },
       { k: 'दीपावली · Festival', t: 'A thousand diyas, a sky of kites', b: 'Lamps drift on the water as lanterns climb into the night.' } ],
     load: () => import('./jaipur.js') },
+  { id: 'suzume', n: '11', name: 'Suzume Door', title: 'Sunset Sanctuary', glyph: '扉', sub: 'A weathered doorway in a twilight meadow leading to an interactive sanctuary',
+    font: { display: "'Fraunces', Georgia, serif", body: "'Inter', system-ui, sans-serif", url: G + 'Fraunces:opsz,wght@9..144,300;9..144,600&family=Inter:wght@400;500&display=swap' },
+    colors: { bg: '#1c101d', ink: '#f8eedc', accent: '#ff8a50' },
+    chapters: [
+      { k: '01 · Doorway', t: 'A door standing in the twilight', b: 'A weathered timber doorway stands in an alpine meadow, waiting for someone to turn the handle.' },
+      { k: '02 · Projection', t: 'Camera projection handoff', b: 'A seamless transition from photographic cover to real-time 3D perspective depth.' },
+      { k: '03 · Meadow', t: 'Fifty-five thousand blades', b: 'Instanced wind-swept grass, clovers, and swaying wildflowers under low-angle golden sunlight.' },
+      { k: '04 · Threshold', t: 'Step through the aperture', b: 'A stencil aperture reveals the glowing sanctuary only through the doorway.' },
+      { k: '05 · Sanctuary', t: 'Twelve little wonders', b: 'Interactive keepsakes, polaroids, floating lanterns, fireworks, and synthesized meadow chimes.' } ],
+    load: () => import('./suzume.js') },
 ];

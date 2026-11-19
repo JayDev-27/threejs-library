@@ -4,14 +4,16 @@ A curated library and showcase of state-of-the-art Three.js scenes, procedural 3
 
 ## Included Showcases & Experiences
 
-1. **Sunset Doorway Sanctuary (`/`)** — An interactive 3D sunset meadow with camera projection handoff, 55,000 instanced grass blades, procedural shaders, and interactive keepsakes.
+A curated collection of 11 cinematic Three.js worlds and interactive WebGL experiences:
+
+1. **Suzume Doorway Sanctuary (`/`)** — An interactive 3D sunset meadow with camera projection handoff, 55,000 instanced grass blades, procedural shaders, and interactive keepsakes.
 2. **Ten Cinematic Scroll Worlds (`/showcases/`)** — Ten fully procedural scroll-driven worlds with HDR post-processing, volumetric god rays, planar water reflections, and smooth camera rails.
 
 ---
 
-## 1. Ten Scroll Showcases
+## 1. Cinematic Showcases & Worlds
 
-Integrated from [Threejs Scroll Showcases](https://threejs-scroll-showcases.vercel.app/) — ten procedural, scroll-driven Three.js worlds with zero 3D model or image asset dependencies:
+Eleven procedural, scroll-driven Three.js worlds and interactive 3D experiences:
 
 > **[▶ Open Live Gallery](https://threejs-scroll-showcases.vercel.app/)** &nbsp;·&nbsp; Local dev route: `/showcases/`
 
@@ -27,6 +29,7 @@ Integrated from [Threejs Scroll Showcases](https://threejs-scroll-showcases.verc
 | **08** | **Mythology** (*Olympus*) | Marble temple above cloud sea, thunderstorm, eternal flame | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=mythology) | [`mythology.js`](public/showcases/scenes/mythology.js) |
 | **09** | **Fantasy** (*Arcanum*) | Floating isles under aurora, elder tree of light, crystal spire | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=fantasy) | [`fantasy.js`](public/showcases/scenes/fantasy.js) |
 | **10** | **Jaipur** (*Gulabi Nagar*) | Hawa Mahal, decorated elephants, cusped arches, stepwell diyas | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=jaipur) | [`jaipur.js`](public/showcases/scenes/jaipur.js) |
+| **11** | **Suzume Door** (*Sunset Sanctuary*) | Weathered timber door in twilight meadow, perspective projection handoff, 55,000 instanced grass blades, interactive keepsakes & portal | [▶ **Open Sanctuary**](/) | [`src/scene/`](src/scene/) · [`suzume.js`](public/showcases/scenes/suzume.js) |
 
 Gallery Overview: [threejs-scroll-showcases.vercel.app](https://threejs-scroll-showcases.vercel.app/) &nbsp;·&nbsp; Source folder: [`public/showcases/`](public/showcases/)
 

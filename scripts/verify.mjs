@@ -1,0 +1,87 @@
+import {chromium} from '@playwright/test';
+import {mkdir,writeFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+
+const base=process.env.APP_URL||'http://localhost:5173';
+await mkdir('test-results',{recursive:true});
+const browser=await chromium.launch({channel:'chrome',headless:true,args:['--enable-webgl','--ignore-gpu-blocklist']});
+const errors=[];const missing=[];
+const page=await browser.newPage({viewport:{width:1600,height:1000},deviceScaleFactor:1});
+page.on('pageerror',error=>errors.push(error.message));
+page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
+page.on('response',response=>{if(response.status()>=400)missing.push(`${response.status()} ${response.url()}`);});
+try{
+  await page.goto(base,{waitUntil:'networkidle'});
+  await page.waitForFunction(()=>window.__siyaverse?.ready,{timeout:60000});
+  await page.waitForTimeout(900);
+  await page.screenshot({path:'test-results/desktop-opening.png'});
+  assert.equal(await page.title(),'SiyaVerse — A little world, just for you');
+  await page.locator('[data-journey="sanctuary"]').click();
+  await page.waitForFunction(()=>window.__siyaverse.progress>.94,{timeout:20000});
+  await page.waitForTimeout(800);
+  await page.screenshot({path:'test-results/desktop-sanctuary.png'});
+  await page.locator('[data-view="memories"]').click();
+  await page.locator('[data-memory="0"]').click();
+  await page.locator('[data-action="flip"]').click();
+  assert.equal(await page.locator('#polaroid-flipper').evaluate(el=>el.classList.contains('flipped')),true);
+  await page.waitForTimeout(900);
+  await page.screenshot({path:'test-results/memory-note.png'});
+  await page.locator('#dialog-close').click();
+  await page.locator('[data-view="cake"]').click();
+  await page.locator('[data-action="blow"]').click();
+  await page.locator('#dialog-title').filter({hasText:'Happy birthday, dear you.'}).waitFor();
+  assert((await page.evaluate(()=>window.__siyaverse.discoveries)).includes('wish'));
+  await page.screenshot({path:'test-results/birthday-wish.png'});
+  await page.locator('[data-action="relight"]').click();
+  await page.locator('[data-action="blow"]').waitFor();
+  await page.locator('#dialog-close').click();
+  await page.locator('[data-view="gifts"]').click();
+  await page.locator('[data-gift="0"]').click();
+  await page.getByRole('heading',{name:'To the person who makes ordinary days extraordinary.'}).waitFor();
+  assert((await page.evaluate(()=>window.__siyaverse.discoveries)).includes('gift-1'));
+  await page.screenshot({path:'test-results/gift-letter.png'});
+  await page.locator('#dialog-close').click();
+  await page.locator('[data-view="wonders"]').click();
+  await page.locator('[data-wonder="lantern"]').click();
+  assert((await page.evaluate(()=>window.__siyaverse.discoveries)).includes('lantern'));
+  for(const id of ['banner','butterflies','topper','blue-flower','note']){
+    await page.locator('#discovery').click();
+    await page.locator(`[data-wonder="${id}"]`).click();
+    if(await page.locator('#keepsake-dialog').evaluate(el=>el.open))await page.locator('#dialog-close').click();
+  }
+  for(const index of [1,2,3]){
+    await page.locator('[data-view="gifts"]').click();
+    await page.locator(`[data-gift="${index}"]`).click();
+    await page.locator('#keepsake-dialog').waitFor({state:'visible'});
+    await page.locator('#dialog-close').click();
+  }
+  assert.equal((await page.evaluate(()=>window.__siyaverse.discoveries)).length,12,'All twelve discoveries should be reachable.');
+  await page.locator('#sound-button').click();
+  assert.equal(await page.locator('#sound-button').getAttribute('aria-pressed'),'true');
+  await page.locator('#sound-button').click();
+  await page.locator('#back-button').click();
+  await page.waitForTimeout(1600);
+  const metrics=await page.evaluate(()=>({render:window.__siyaverse.renderInfo,discoveries:window.__siyaverse.discoveries,overflow:document.documentElement.scrollWidth>innerWidth}));
+  assert.equal(metrics.overflow,false,'Desktop should not overflow horizontally.');
+  const mobile=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true,reducedMotion:'reduce'});
+  mobile.on('pageerror',error=>errors.push(error.message));
+  await mobile.goto(base,{waitUntil:'networkidle'});
+  await mobile.waitForFunction(()=>window.__siyaverse?.ready,{timeout:60000});
+  await mobile.waitForTimeout(900);
+  await mobile.screenshot({path:'test-results/mobile-opening.png'});
+  await mobile.locator('#begin-button').click();
+  await mobile.waitForFunction(()=>window.__siyaverse.progress>.94);
+  await mobile.waitForTimeout(300);
+  await mobile.screenshot({path:'test-results/mobile-sanctuary.png'});
+  assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'Mobile should not overflow horizontally.');
+  await mobile.locator('[data-view="memories"]').click();
+  assert.equal(await mobile.locator('.memory-card').count(),8);
+  await mobile.screenshot({path:'test-results/mobile-memories.png'});
+  await mobile.locator('#dialog-close').click();
+  await mobile.locator('#discovery').click();
+  assert.equal(await mobile.locator('.wonder-item').count(),12,'Mobile should provide accessible access to all twelve wonders.');
+  assert.deepEqual(missing,[],'There should be no failed requests.');
+  assert.deepEqual(errors,[],'There should be no JavaScript, shader, or console errors.');
+  await writeFile('test-results/verification.json',JSON.stringify({passed:true,metrics,errors,missing},null,2));
+  console.log(JSON.stringify({passed:true,metrics,errors,missing},null,2));
+}finally{await browser.close();}

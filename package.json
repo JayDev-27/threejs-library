@@ -1,0 +1,25 @@
+{
+  "name": "siyaverse",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "check": "node scripts/verify.mjs",
+    "check:lifecycle": "node scripts/verify-lifecycle.mjs",
+    "check:cover": "node scripts/verify-cover.mjs"
+  },
+  "dependencies": {
+    "gsap": "^3.14.2",
+    "lenis": "^1.3.15",
+    "simplex-noise": "^4.0.3",
+    "three": "^0.181.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "sharp": "^0.35.5",
+    "vite": "^7.2.2"
+  }
+}

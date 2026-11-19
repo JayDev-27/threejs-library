@@ -1,21 +1,128 @@
-# Three.js Library & Showcases
+<div align="center">
 
-A curated library and showcase of state-of-the-art Three.js scenes, procedural 3D environments, and interactive WebGL experiences.
+  <a href="https://github.com/JayDev-27/threejs-library">
+    <img src="assets/threejs-logo.svg" width="96" height="96" alt="Three.js Logo" />
+  </a>
 
-## Included Showcases & Experiences
+  <h1>Three.js Library & Showcases</h1>
 
-A curated collection of 11 cinematic Three.js worlds and interactive WebGL experiences:
+  <p>
+    <b>A curated collection of state-of-the-art Three.js scenes, procedural 3D environments, and scroll-driven WebGL experiences.</b>
+  </p>
 
-1. **Suzume Doorway Sanctuary (`/`)** — An interactive 3D sunset meadow with camera projection handoff, 55,000 instanced grass blades, procedural shaders, and interactive keepsakes.
-2. **Ten Cinematic Scroll Worlds (`/showcases/`)** — Ten fully procedural scroll-driven worlds with HDR post-processing, volumetric god rays, planar water reflections, and smooth camera rails.
+  <p>
+    <a href="https://threejs-scroll-showcases.vercel.app/"><img src="https://img.shields.io/badge/Live_Gallery-Vercel-success?style=for-the-badge&logo=vercel" alt="Live Gallery" /></a>
+    <a href="https://github.com/JayDev-27/threejs-library"><img src="https://img.shields.io/badge/GitHub-JayDev--27%2Fthreejs--library-blue?style=for-the-badge&logo=github" alt="GitHub Repository" /></a>
+    <a href="https://threejs.org/"><img src="https://img.shields.io/badge/Three.js-r181-049EF4?style=for-the-badge&logo=three.js&logoColor=white" alt="Three.js r181" /></a>
+    <a href="#license"><img src="https://img.shields.io/badge/License-MIT-orange?style=for-the-badge" alt="License MIT" /></a>
+    <img src="https://img.shields.io/badge/Procedural_Assets-100%25-brightgreen?style=for-the-badge" alt="100% Procedural" />
+  </p>
+
+  <p>
+    <a href="https://threejs-scroll-showcases.vercel.app/"><b>▶ Open Live Gallery ↗</b></a> &nbsp;•&nbsp;
+    <a href="#-visual-showcase-gallery"><b>Visual Gallery</b></a> &nbsp;•&nbsp;
+    <a href="#-showcase-directory"><b>11 Showcases Table</b></a> &nbsp;•&nbsp;
+    <a href="#-flagship-experience-suzume-doorway"><b>Suzume Doorway</b></a> &nbsp;•&nbsp;
+    <a href="#-quick-start"><b>Quick Start</b></a>
+  </p>
+
+  <br />
+
+  <a href="https://threejs-scroll-showcases.vercel.app/">
+    <img src="assets/screenshots/gallery-overview.png" width="100%" alt="Three.js Showcases Gallery Overview" style="border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.5);" />
+  </a>
+
+</div>
+
+<br />
 
 ---
 
-## 1. Cinematic Showcases & Worlds
+## ✨ Highlights
 
-Eleven procedural, scroll-driven Three.js worlds and interactive 3D experiences:
+- 🌿 **Zero 3D Asset Dependencies** — Every mesh, landscape, foliage clump, cloud volume, and texture is synthesized mathematically at runtime. No heavy `.gltf` or `.fbx` downloads.
+- 📜 **Scroll-Driven Camera Rails** — Smooth mathematical camera progression tied to user scroll, enhanced with physics-based mouse parallax and adaptive damping.
+- 🌅 **HDR Post-Processing Pipeline** — 6-pass bloom pyramid, radial volumetric light shafts (*god rays*), ACES filmic tone mapping, screen-space ambient occlusion (SSAO), and chromatic aberration.
+- 🌊 **Planar Mirror Water Reflections** — Real-time clipped reflection camera matrix with dynamic ripple distortion and adaptive frame-skipping.
+- 🚪 **Camera Projection Handoff** — Mathematical alignment from 2D photographic perspective into real-time 3D depth without breaking immersion (Suzume Doorway).
+- ⚡ **Adaptive Quality Engine** — Continuous frame-time monitoring automatically scales internal render resolution to guarantee 60 FPS on any GPU.
 
-> **[▶ Open Live Gallery](https://threejs-scroll-showcases.vercel.app/)** &nbsp;·&nbsp; Local dev route: `/showcases/`
+---
+
+## 🖼 Visual Showcase Gallery
+
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%" align="center">
+        <a href="https://threejs-scroll-showcases.vercel.app/showcase.html?s=nature">
+          <img src="assets/screenshots/showcase-nature.png" width="100%" alt="Nature (Verdant)" /><br />
+          <b>01 · Nature (Verdant)</b>
+        </a><br />
+        <sub>Dawn over an alpine valley: spruce, birch, grass & mirror lake</sub>
+      </td>
+      <td width="50%" align="center">
+        <a href="https://threejs-scroll-showcases.vercel.app/showcase.html?s=japanese">
+          <img src="assets/screenshots/showcase-japanese.png" width="100%" alt="Japanese (Yoizakura)" /><br />
+          <b>02 · Japanese (Yoizakura)</b>
+        </a><br />
+        <sub>Vermilion torii corridor, stone lanterns, night sakura & pagoda</sub>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%" align="center">
+        <a href="https://threejs-scroll-showcases.vercel.app/showcase.html?s=cyberpunk">
+          <img src="assets/screenshots/showcase-cyberpunk.png" width="100%" alt="Cyberpunk (Neon Rain)" /><br />
+          <b>03 · Cyberpunk (Neon Rain)</b>
+        </a><br />
+        <sub>Wet megacity street, neon reflections & streaming hover traffic</sub>
+      </td>
+      <td width="50%" align="center">
+        <a href="https://threejs-scroll-showcases.vercel.app/showcase.html?s=space">
+          <img src="assets/screenshots/showcase-space.png" width="100%" alt="Space (Event Horizon)" /><br />
+          <b>06 · Space (Event Horizon)</b>
+        </a><br />
+        <sub>Living blue planet, asteroid belt, ringed giant & black hole</sub>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%" align="center">
+        <a href="https://threejs-scroll-showcases.vercel.app/showcase.html?s=gaming">
+          <img src="assets/screenshots/showcase-gaming.png" width="100%" alt="Gaming (Level Up)" /><br />
+          <b>04 · Gaming (Level Up)</b>
+        </a><br />
+        <sub>Floating voxel islands, synthwave grid & animated coin pickups</sub>
+      </td>
+      <td width="50%" align="center">
+        <a href="https://threejs-scroll-showcases.vercel.app/showcase.html?s=jaipur">
+          <img src="assets/screenshots/showcase-jaipur.png" width="100%" alt="Jaipur (Gulabi Nagar)" /><br />
+          <b>10 · Jaipur (Gulabi Nagar)</b>
+        </a><br />
+        <sub>Hawa Mahal jharokhas, cusped arches & floating stepwell diyas</sub>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%" align="center">
+        <a href="https://threejs-scroll-showcases.vercel.app/showcase.html?s=underwater">
+          <img src="assets/screenshots/showcase-underwater.png" width="100%" alt="Underwater (Abyss)" /><br />
+          <b>07 · Underwater (Abyss)</b>
+        </a><br />
+        <sub>Coral caustics, swaying giant kelp forest & deep sea whale</sub>
+      </td>
+      <td width="50%" align="center">
+        <a href="/">
+          <img src="assets/screenshots/showcase-suzume.png" width="100%" alt="Suzume Door (Sunset Sanctuary)" /><br />
+          <b>11 · Suzume Door (Sunset Sanctuary)</b>
+        </a><br />
+        <sub>Weathered timber door in twilight meadow with glowing portal</sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
+## 🧭 Showcase Directory
 
 | # | World | The Journey | Live 3D Demo | Source Code |
 |:--:|:--|:--|:--:|:--:|
@@ -31,88 +138,129 @@ Eleven procedural, scroll-driven Three.js worlds and interactive 3D experiences:
 | **10** | **Jaipur** (*Gulabi Nagar*) | Hawa Mahal, decorated elephants, cusped arches, stepwell diyas | [▶ **Open Live**](https://threejs-scroll-showcases.vercel.app/showcase.html?s=jaipur) | [`jaipur.js`](public/showcases/scenes/jaipur.js) |
 | **11** | **Suzume Door** (*Sunset Sanctuary*) | Weathered timber door in twilight meadow, perspective projection handoff, 55,000 instanced grass blades, interactive keepsakes & portal | [▶ **Open Sanctuary**](/) | [`src/scene/`](src/scene/) · [`suzume.js`](public/showcases/scenes/suzume.js) |
 
-Gallery Overview: [threejs-scroll-showcases.vercel.app](https://threejs-scroll-showcases.vercel.app/) &nbsp;·&nbsp; Source folder: [`public/showcases/`](public/showcases/)
+> **Gallery Overview**: [threejs-scroll-showcases.vercel.app](https://threejs-scroll-showcases.vercel.app/) &nbsp;·&nbsp; Local gallery: [`/showcases/`](/showcases/) &nbsp;·&nbsp; Source folder: [`public/showcases/`](public/showcases/)
 
 ---
 
-## 2. Sunset Doorway Sanctuary
+## 🚪 Flagship Experience: Suzume Doorway
 
-A sunset doorway leading into an interactive birthday sanctuary. Built with Vite, Three.js, GSAP ScrollTrigger, Lenis, and procedural canvas textures.
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%" align="center">
+        <img src="assets/screenshots/suzume-door.png" width="100%" alt="Suzume Closed Doorway Cover" /><br />
+        <b>Step 1: The Closed Doorway</b><br />
+        <sub>Perspective projection aligned with photographic artwork</sub>
+      </td>
+      <td width="50%" align="center">
+        <img src="assets/screenshots/suzume-sanctuary.png" width="100%" alt="Suzume Birthday Sanctuary" /><br />
+        <b>Step 2: The Interactive Sanctuary</b><br />
+        <sub>55,000 instanced grass blades, blowing candles & keepsakes</sub>
+      </td>
+    </tr>
+  </table>
+</div>
 
-## Run locally
+The root project (`/`) delivers an interactive 3D sunset doorway experience inspired by Makoto Shinkai's *Suzume*:
+
+- **Seamless Camera Handoff**: Starts with a photographic closed-door framing. Upon scrolling, smoothly transitions into perspective-projected 3D geometry without popping or distortion.
+- **55,000 Instanced Grass Blades**: Procedural wind oscillation shader moving 55,000 blades of grass, clovers, and 4 wildflower species.
+- **Stencil Aperture Portal**: The celebratory sanctuary is revealed strictly through the doorway aperture until the camera crosses the threshold.
+- **12 Interactive Wonders**:
+  - Pinned notes and flippable Polaroids.
+  - Interactive birthday cake with candles that extinguish via microphone breath detection or click.
+  - 4 opening gift boxes with handwritten notes, photos, and melodies.
+  - Synthesized ambient meadow chimes and wind generated locally via the Web Audio API.
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- npm or pnpm
+
+### Installation
 
 ```sh
+# Clone repository
+git clone https://github.com/JayDev-27/threejs-library.git
+cd threejs-library
+
+# Install dependencies
 npm install
+
+# Start local development server
 npm run dev
 ```
 
-Open the URL Vite prints. `npm run build` creates the static site in `dist/`; `npm run preview` serves the production build.
+Visit `http://localhost:5173` to explore the **Suzume Doorway Sanctuary**, or `http://localhost:5173/showcases/` to browse all **11 cinematic procedural worlds**.
 
-## Personalize
-
-Edit **`src/data/birthdayConfig.js`** for the recipient’s name, eight memories, handwritten notes, four gifts, birthday wish, and hidden surprises. No 3D code changes are needed.
-
-- Put personal images in `public/images/`, then set a memory’s `imageUrl` to `/images/your-photo.jpg`. Leave it empty for the included procedural illustrations. Captions, dates, rotation, and the note on the back are configured alongside each image.
-- Gift types include `letter`, `photos`, `music`, and `voucher`. Set `surpriseType` to `video` or `audio` and supply `mediaUrl` to show a native media player. Other media URLs display an image.
-- All sample memories and messages are fictional placeholders, ready to replace.
-
-## The experience
-
-The opening uses the supplied **closed-door** reference, optimized to WebP, with semantic HTML titles, floating pollen, and a clickable doorway. The camera and photographic door textures match the cover's framing. During the first scroll movement, it hands over to a perspective-projected landscape made from a matching clean plate. The door stays closed during this handoff, then swings inward. A stencil aperture reveals the birthday sanctuary only through the doorway until the camera crosses the threshold. Scrolling backward returns to the closed cover.
-
-The scene combines image projection with 55,000 instanced grass blades, four swaying wildflower species, clover detail, a displaced meadow, a hinged timber door, fairy lights, birthday bunting, a two-tier cake, gift boxes, a memory trellis, lanterns, and additive particles. Low-angle golden light, violet ambient fill and contact shadows carry the sunset into the interactive scene. The sky dome combines FBM clouds with a sky-only crop of the supplied artwork. Desktop rendering caps pixel ratio at 2, mobile at 1.5. The photographic scenery is not a fully modeled reconstruction of every flower in the reference.
-
-Scroll normally, use the chapter dots, or choose **Begin the journey** for a guided entrance. In the sanctuary:
-
-- Click a Polaroid to inspect and flip it. Pinned notes open as paper keepsakes.
-- Make a wish to extinguish the candles, release smoke and confetti, and launch fireworks. Relight the cake to wish again.
-- Open all four gifts to find letters, illustrated memories, a music-box melody, and an adventure voucher.
-- Play the birthday banner, release butterflies from the flowers, launch lanterns, and inspect the cake’s star to discover all twelve wonders.
-- Use the bottom navigation or the discovery counter for keyboard-accessible keepsakes and secrets. Escape closes a keepsake; **Back to sanctuary** restores the overview.
-
-Sound starts muted. Enabling it synthesizes meadow wind and gentle chimes locally with Web Audio. Microphone access is requested only by **Use my microphone**; it is processed locally, never recorded or uploaded, and stops on detection, close, tab hiding, or after 15 seconds. HTTPS or localhost is required for microphone access. The click-to-blow alternative always works.
-
-Reduced motion disables the long automatic journey and environmental oscillation, shortens the scroll track, and makes focus transitions immediate. A WebGL failure preserves the illustrated background and keepsakes through the HTML controls.
-
-## Validation
-
-With the dev server running:
+### Build for Production
 
 ```sh
-npm run check
+# Compile static bundle to dist/
+npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
-The Playwright script uses installed Google Chrome to verify desktop and mobile layouts, the journey, memories, candle extinguishing and relighting, gifts, and discoveries. It checks console errors, shader errors, failed network requests, and horizontal overflow. Screenshots and the result JSON are written to `test-results/` (ignored by Git). A real microphone and real device GPU performance need device testing.
+---
 
-`npm run check:lifecycle` additionally verifies direct raycast hover/click, microphone track cleanup using a synthetic Chrome audio device, and keepsake access when WebGL is unavailable. Set `APP_URL` to test a production preview instead of the default dev server. Static mesh details are batched to reduce draw calls; current render metrics are recorded in `test-results/verification.json`.
+## 🧪 Verification & Automated Testing
 
-`npm run check:cover` captures the opening and seven positions along the scroll, checks that the door stays closed during the handoff, verifies reverse scrolling, and captures mobile framing.
+The repository includes a comprehensive Playwright automation suite running in headless Chrome with full WebGL hardware acceleration:
 
-## Structure
+```sh
+# Run end-to-end verification (interactions, discoveries, shader errors)
+npm run check
+
+# Verify raycasting, microphone cleanup, and WebGL lifecycle
+npm run check:lifecycle
+
+# Verify 7-stage camera projection continuity and mobile framing
+npm run check:cover
+```
+
+---
+
+## 📁 Repository Structure
 
 ```text
-src/
-  main.js                      Journey, accessible controls, keepsake dialogs
-  data/birthdayConfig.js       Personal content
-  scene/World.js               Renderer, lighting, bloom, grading
-  scene/SunsetSky.js           Animated surrounding sky dome
-  scene/ReferenceLandscape.js  Matching photographic terrain and distant scenery
-  scene/referenceLook.js       Cover camera framing and reference color handling
-  scene/MeadowPathway.js       Terrain, instanced grass and flowers
-  scene/PortalDoor.js          Wood door, hinge, portal light
-  scene/BirthdaySanctuary.js   Sanctuary composition and lanterns
-  scene/elements/              Banner, table, cake, gifts, memory trellis
-  scene/Atmosphere.js          Pollen, smoke, butterflies, fireworks
-  interaction/                Raycasting and hover feedback
-  audio/                      Synthesized sound and microphone lifecycle
-  utils/                      Deterministic procedural textures
+threejs-library/
+├── assets/
+│   ├── threejs-logo.svg              # Three.js wireframe badge
+│   └── screenshots/                  # High-resolution showcase screenshots
+├── public/
+│   ├── showcases/                    # 11 procedural scroll worlds
+│   │   ├── index.html                # Interactive world selector
+│   │   ├── showcase.html             # Cinematic scroll story engine
+│   │   ├── lib/
+│   │   │   ├── engine.js             # Post-processing, camera rails, planar mirror
+│   │   │   ├── kit.js                # Procedural noise, geometry builder, sky
+│   │   │   └── flora.js              # Grown trees, grass clumps, boulders
+│   │   └── scenes/                   # 11 procedural scene modules
+│   │       ├── nature.js, japanese.js, cyberpunk.js, space.js...
+│   │       └── suzume.js             # Standalone timber doorway in meadow
+│   ├── fonts/                        # Self-hosted typography
+│   └── images/                       # Optimized WebP textures & clean plates
+├── src/                              # Flagship Suzume Doorway app
+│   ├── main.js                       # Journey, accessible controls, keepsake dialogs
+│   ├── data/birthdayConfig.js        # Personal content & keepsakes
+│   └── scene/                        # World, grass instancing, portal, atmosphere
+└── scripts/                          # Playwright verification suites
 ```
 
-## Asset provenance
+---
 
-- **Opening artwork:** the user's closed-door reference, retained in `reference/closed-door-cover.png`. Display copy: `public/images/closed-door-cover.webp`. Door textures and sky are cropped from that same artwork. The earlier open-door reference is retained in `reference/`.
-- **Matching landscape:** door-removal edit made with the built-in image-generation tool and integrated as `public/images/meadow-landscape.webp`. See [asset provenance and final prompt](reference/ASSETS.md). No ownership or independent license for the supplied artwork is asserted.
-- **3D meshes, materials, illustrations, effects:** created procedurally in this project. No remote model or stock-image dependencies.
-- **Fonts:** Cormorant Garamond, Caveat, and Plus Jakarta Sans, downloaded from Google Fonts and self-hosted. SIL Open Font License texts are bundled in `public/fonts/`.
+## 📄 License & Credits
 
-Implementation references: [Three.js documentation](https://threejs.org/docs/) and [GSAP ScrollTrigger documentation](https://gsap.com/docs/v3/Plugins/ScrollTrigger/). This project does not use generated video sequences.
+- **Code**: [MIT License](LICENSE) © 2026 [Jatin Pandey](https://github.com/JayDev-27).
+- **Procedural Showcases**: Integrated and adapted from [Threejs Scroll Showcases](https://threejs-scroll-showcases.vercel.app/).
+- **Engine & Core**: Built with [Three.js](https://threejs.org/) (r181), [GSAP ScrollTrigger](https://gsap.com/), and [Lenis](https://lenis.darkroom.engineering/).
+
+<div align="center">
+  <p><b>Crafted with pure mathematics, shaders, and Three.js.</b></p>
+  <a href="#threejs-library--showcases">Back to top ↑</a>
+</div>

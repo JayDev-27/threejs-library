@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Threejs scroll showcases · ten scroll-driven three.js worlds</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<meta name="description" content="Ten cinematic scroll-driven three.js worlds, fully procedural and ready to drop into any website.">
+<meta property="og:title" content="Threejs scroll showcases">
+<meta property="og:image" content="https://threejs-scroll-showcases.vercel.app/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root { --bg: #07080b; --ink: #f3efe6; --accent: #c9e27a; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow: hidden; }
+#gl { position: fixed; inset: 0; width: 100vw; height: 100dvh; display: block; }
+#shade { position: fixed; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(5,6,9,.88) 0%, rgba(5,6,9,.62) 30%, rgba(5,6,9,.08) 62%, rgba(5,6,9,0) 100%), linear-gradient(0deg, rgba(5,6,9,.55), rgba(5,6,9,0) 30%); }
+#veil { position: fixed; inset: 0; background: var(--bg); opacity: 1; transition: opacity .7s ease; pointer-events: none; }
+body.live #veil { opacity: 0; }
+header { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: baseline; padding: 26px clamp(18px, 4vw, 54px); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; z-index: 3; }
+header b { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -.01em; text-transform: none; display: inline-flex; align-items: center; gap: 10px; }
+header b img { border-radius: 7px; }
+header span { opacity: .6; }
+main { position: fixed; inset: 0; display: grid; grid-template-columns: minmax(0, 620px) 1fr; align-items: center; padding: 84px clamp(18px, 4vw, 54px) 70px; z-index: 2; }
+nav { display: flex; flex-direction: column; max-height: 100%; overflow-y: auto; scrollbar-width: none; }
+nav::-webkit-scrollbar { display: none; }
+nav a { display: grid; grid-template-columns: 44px 1fr auto; align-items: baseline; gap: 6px; padding: clamp(5px, 1.05vh, 11px) 0; color: var(--ink); text-decoration: none; border-bottom: 1px solid rgba(243,239,230,.1); opacity: .5; transition: opacity .35s, padding-left .45s cubic-bezier(.2,.7,.2,1); }
+nav a i { font-style: normal; font-size: 11px; letter-spacing: .16em; opacity: .7; }
+nav a strong { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(24px, 4.6vh, 46px); line-height: 1.04; letter-spacing: -.02em; }
+nav a em { font-style: normal; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; opacity: 0; transform: translateX(-8px); transition: all .4s; color: var(--accent); }
+nav a.on { opacity: 1; padding-left: 14px; } nav a.on i { color: var(--accent); opacity: 1; } nav a.on em { opacity: 1; transform: none; }
+nav a:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+aside { align-self: end; justify-self: end; text-align: right; max-width: 380px; padding-bottom: 6px; }
+aside .g { font-family: 'Fraunces', serif; font-size: clamp(30px, 5vw, 64px); color: var(--accent); line-height: 1; text-shadow: 0 0 40px color-mix(in srgb, var(--accent) 50%, transparent); transition: color .5s; }
+aside h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(26px, 3.2vw, 44px); margin: 12px 0 8px; letter-spacing: -.02em; }
+aside p { margin: 0 0 20px; font-size: 14px; line-height: 1.55; opacity: .8; }
+aside a { display: inline-block; color: var(--bg); background: var(--accent); text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; padding: 13px 20px; border-radius: 999px; transition: transform .3s, background .5s; }
+aside a:hover { transform: translateY(-2px); }
+footer { position: fixed; left: clamp(18px, 4vw, 54px); bottom: 22px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; opacity: .45; z-index: 3; }
+#busy { position: fixed; right: clamp(18px, 4vw, 54px); top: 62px; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); opacity: 0; transition: opacity .3s; z-index: 3; }
+body.loading #busy { opacity: .9; }
+@media (max-width: 860px) { main { grid-template-columns: 1fr; align-items: start; } aside { display: none; } #shade { background: rgba(5,6,9,.62); } nav a em { display: none; } }
+</style>
+</head>
+<body class="loading">
+<canvas id="gl"></canvas>
+<div id="veil"></div>
+<div id="shade"></div>
+<header><b class="brand"><a href="/" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:10px;"><img src="logo.svg" alt="" width="30" height="30">Three.js Library</a></b><nav style="display:inline-flex;gap:18px;align-items:center;"><a href="/" style="color:var(--ink);opacity:.75;text-decoration:none;font-weight:500;">← Sanctuary</a><span>Ten scroll-driven worlds · pure three.js</span></nav></header>
+<div id="busy">Building world…</div>
+<main>
+  <nav id="list" aria-label="Showcases"></nav>
+  <aside><div class="g" id="a-g"></div><h2 id="a-t"></h2><p id="a-s"></p><a id="a-l" href="#">Enter the showcase →</a></aside>
+</main>
+<footer>Every mesh, texture and light is generated by code · no models, no images</footer>
+<script type="module">
+import { mount, SCENES } from './lib/engine.js';
+const $ = s => document.querySelector(s), list = $('#list'), root = document.documentElement;
+let current = null, wanted = SCENES[0].id, api = null, working = false, timer = 0;
+SCENES.forEach(s => { const a = document.createElement('a'); a.href = `showcase.html?s=${s.id}`; a.dataset.id = s.id; a.innerHTML = `<i>${s.n}</i><strong>${s.name}</strong><em>${s.title}</em>`;
+  const pick = () => { clearTimeout(timer); timer = setTimeout(() => show(s.id), 380); }; a.addEventListener('pointerenter', pick); a.addEventListener('focus', pick); a.addEventListener('pointerleave', () => clearTimeout(timer)); list.append(a); });
+function describe(id) { const s = SCENES.find(x => x.id === id); root.style.setProperty('--accent', s.colors.accent); $('#a-g').textContent = s.glyph; $('#a-t').textContent = s.title; $('#a-s').textContent = s.sub; $('#a-l').href = `showcase.html?s=${s.id}`;
+  list.querySelectorAll('a').forEach(a => a.classList.toggle('on', a.dataset.id === id)); }
+// the newest request wins: a world that is still building finishes, then the latest pick is built
+async function show(id) {
+  wanted = id; describe(id); if (working) return; working = true;
+  while (current !== wanted) { const next = wanted; document.body.classList.add('loading'); document.body.classList.remove('live'); await new Promise(r => setTimeout(r, api ? 520 : 30));
+    try { if (!api) api = await mount($('#gl'), next, { autoplay: 70 }); else await api.setScene(next); current = next; } catch (e) { console.error(e); $('#busy').textContent = e.message; break; } }
+  working = false; document.body.classList.remove('loading'); requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('live')));
+}
+show(new URLSearchParams(location.search).get('s') || SCENES[0].id);
+</script>
+</body>
+</html>

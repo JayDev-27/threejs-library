@@ -1,5 +1,7 @@
 # SiyaVerse
 
+> An interactive 3D sunset doorway experience built with Three.js and GSAP.
+
 A sunset doorway leading into a personal, interactive birthday sanctuary. Built with Vite, Three.js, GSAP ScrollTrigger, Lenis, and procedural canvas textures.
 
 ## Run locally
